@@ -51,3 +51,29 @@ The request body must be in JSON format and include the following fields:
   }
 }
 ```
+
+# User Login Endpoint Documentation
+
+## Endpoint
+
+**POST** `/users/login`
+
+## Description
+
+This endpoint allows existing users to log in by providing their email and password.
+
+## Request Body
+
+The request body must be in JSON format and include the following fields:
+
+- `email` (string, required): The email address of the user.
+- `password` (string, required): The password for the account (minimum 6 characters).
+
+### Example Request Body
+
+```json
+{
+  "email": "john.doe@example.com",
+  "password": "yourpassword"
+}
+```
