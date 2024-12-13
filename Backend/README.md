@@ -77,3 +77,76 @@ The request body must be in JSON format and include the following fields:
   "password": "yourpassword"
 }
 ```
+
+# User Profile Endpoint Documentation
+
+## Endpoint
+
+**GET** `/users/profile`
+
+## Description
+
+Retrieves the profile information of the currently authenticated user.
+
+## Authentication
+
+This endpoint requires a valid JWT token to be included in the `Authorization` header as a Bearer token.
+
+## Example Request
+
+## Example Response
+
+**Status Code:** `200 OK`
+
+**Response Body:**
+
+```json
+{
+  "_id": "unique_user_id",
+  "fullname": {
+    "firstname": "John",
+    "lastname": "Doe"
+  },
+  "email": "john.doe@example.com"
+}
+```
+
+### Error Response
+
+**Status Code:** `401 Unauthorized`
+
+**Response Body:**
+
+```json
+{
+  "message": "Access denied. No token provided."
+}
+```
+
+# User Logout Endpoint Documentation
+
+## Endpoint
+
+**GET** `/users/logout`
+
+## Description
+
+Logs out the currently authenticated user by invalidating their session.
+
+## Authentication
+
+This endpoint requires a valid JWT token to be included in the `Authorization` header as a Bearer token.
+
+
+## Example Response
+
+**Status Code:** `200 OK`
+
+**Response Body:**
+
+```json
+{
+  "message": "User logged out successfully"
+}
+```
+
