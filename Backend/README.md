@@ -214,3 +214,96 @@ The request body must be in JSON format and include the following fields:
   }
 }
 ```
+
+---
+
+# Captain Login Endpoint Documentation
+
+## Endpoint
+
+**POST** `/captains/login`
+
+## Description
+
+This endpoint allows existing captains to log in by providing their email and password.
+
+## Request Body
+
+The request body must be in JSON format and include the following fields:
+
+- `email` (string, required): The email address of the captain.
+- `password` (string, required): The password for the account (minimum 6 characters).
+
+### Example Request Body
+
+```json
+{
+  "email": "jane.doe@example.com",
+  "password": "yourpassword"
+}
+
+---
+
+# Captain Logout Endpoint Documentation
+
+## Endpoint
+
+**GET** `/captains/logout`
+
+## Description
+
+Logs out the currently authenticated captain by invalidating their session.
+
+## Authentication
+
+This endpoint requires a valid JWT token to be included in the `Authorization` header as a Bearer token.
+
+## Example Request
+
+```
+GET /captains/logout
+Authorization: Bearer your_jwt_token
+
+---
+
+# Captain Profile Endpoint Documentation
+
+## Endpoint
+
+**GET** `/captains/profile`
+
+## Description
+
+Retrieves the profile information of the currently authenticated captain.
+
+## Authentication
+
+This endpoint requires a valid JWT token to be included in the `Authorization` header as a Bearer token.
+
+
+## Example Response
+
+**Status Code:** `200 OK`
+
+**Response Body:**
+
+```json
+{
+  "captain": {
+    "_id": "unique_captain_id",
+    "fullname": {
+      "firstname": "Jane",
+      "lastname": "Doe"
+    },
+    "email": "jane.doe@example.com",
+    "vehicle": {
+      "color": "red",
+      "plate": "ABC123",
+      "capacity": 4,
+      "vehicleType": "car"
+    }
+  }
+}
+
+
+
