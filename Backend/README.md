@@ -149,4 +149,68 @@ This endpoint requires a valid JWT token to be included in the `Authorization` h
   "message": "User logged out successfully"
 }
 ```
+# Captain Registration Endpoint Documentation
 
+## Endpoint
+
+**POST** `/captains/register`
+
+## Description
+
+This endpoint allows new captains to register by providing their first name, last name, email, password, and vehicle details.
+
+## Request Body
+
+The request body must be in JSON format and include the following fields:
+
+- `fullname.firstname` (string, required): The first name of the captain (minimum 3 characters).
+- `fullname.lastname` (string, required): The last name of the captain (minimum 3 characters).
+- `email` (string, required): The email address of the captain (must be a valid email format).
+- `password` (string, required): The password for the account (minimum 6 characters).
+- `vehicle.color` (string, required): The color of the vehicle (minimum 3 characters).
+- `vehicle.plate` (string, required): The plate number of the vehicle (minimum 3 characters).
+- `vehicle.capacity` (integer, required): The capacity of the vehicle (minimum 1).
+- `vehicle.vehicleType` (string, required): The type of the vehicle (must be one of 'car', 'motorcycle', 'auto').
+
+### Example Request Body
+
+```json
+{
+  "fullname": {
+    "firstname": "Jane",
+    "lastname": "Doe"
+  },
+  "email": "jane.doe@example.com",
+  "password": "yourpassword",
+  "vehicle": {
+    "color": "red",
+    "plate": "ABC123",
+    "capacity": 4,
+    "vehicleType": "car"
+  }
+}
+```
+### Example Response Body
+
+**Status Code:** `200 Created`
+
+**Response Body:**
+
+```json
+{
+  "captain": {
+    "_id": "unique_captain_id",
+    "fullname": {
+      "firstname": "Jane",
+      "lastname": "Doe"
+    },
+    "email": "jane.doe@example.com",
+    "vehicle": {
+      "color": "red",
+      "plate": "ABC123",
+      "capacity": 4,
+      "vehicleType": "car"
+    }
+  }
+}
+```
