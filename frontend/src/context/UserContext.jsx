@@ -1,10 +1,10 @@
-/* eslint-disable react/prop-types */
-import React, { createContext } from 'react'
 import { useState } from 'react'
+import { createContext } from 'react'
 
 export const UserDataContext = createContext(); 
 
 
+// eslint-disable-next-line react/prop-types
 const UserContext = ({children}) => {
 
     const [user, setUser] = useState({
@@ -17,7 +17,7 @@ const UserContext = ({children}) => {
   return (
     <div>
 
-        <UserDataContext.Provider value={[user, setUser]}>
+        <UserDataContext.Provider value={{user, setUser}}>
              {children}
         </UserDataContext.Provider>
       
