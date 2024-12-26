@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 
 const LookingForDriver = (props) => {
   return (
@@ -5,7 +6,7 @@ const LookingForDriver = (props) => {
          <h5
             className="p-1 text-center absolute w-[93%] top-0"
             onClick={() => {
-                props.setConfirmRidePanel(false);
+                props.setVehicleFound(false);
             }}
         >
              <i className="text-3xl text-gray-200 ri-arrow-down-wide-fill"></i>
